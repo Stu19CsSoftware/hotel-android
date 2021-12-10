@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Hotel</string>
+    <string name="bottom_tab_homepage">首页</string>
+    <string name="bottom_tab_message">消息</string>
+    <string name="bottom_tab_me">我的</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="homepage_rooms_title">热门房型</string>
+    <string name="hotel_name">东门酒店</string>
+    <string name="homepage_item_order">预定</string>
+    <string name="homepage_btn_text_search">搜索入住方案</string>
 </resources>

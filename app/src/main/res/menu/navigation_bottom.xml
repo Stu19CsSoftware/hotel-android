@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_homepage"
+        android:icon="@drawable/ic_tab_homepage"
+        android:title="@string/bottom_tab_homepage" />
+
+    <!--从第一阶段移除-->
+    <item
+        android:id="@+id/main_message"
+        android:icon="@drawable/ic_tab_message"
+        android:title="@string/bottom_tab_message" />
+
+    <item
+        android:id="@+id/main_me"
+        android:icon="@drawable/ic_tab_me"
+        android:title="@string/bottom_tab_me" />
+</menu>

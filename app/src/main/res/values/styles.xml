@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 星星 -->
+    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:minHeight">16sp</item>
+        <item name="android:maxHeight">16sp</item>
+    </style>
+</resources>

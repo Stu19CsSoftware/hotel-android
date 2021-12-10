@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bottom_tab_homepage">首页</string>
+    <string name="bottom_tab_message">消息</string>
+    <string name="bottom_tab_me">我的</string>
+    <string name="hotel_name">东门酒店</string>
+</resources>
