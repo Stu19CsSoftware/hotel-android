@@ -1,4 +1,4 @@
-package fragment;
+package com.ranlychan.hotel.fragment;
 
 import android.os.Bundle;
 
@@ -10,21 +10,22 @@ import android.view.ViewGroup;
 
 import com.ranlychan.hotel.R;
 
-public class MessageFragmentMain extends Fragment {
 
+public class MeFragmentMain extends Fragment {
 
-    public MessageFragmentMain() {
+    public MeFragmentMain() {
 
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_message_main, container, false);
+        return inflater.inflate(R.layout.fragment_me_main, container, false);
     }
 }

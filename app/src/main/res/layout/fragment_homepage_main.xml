@@ -6,13 +6,14 @@
     android:orientation="vertical"
     android:scrollbars="none"
     android:background="@color/page_bg_light_white"
-    tools:context="fragment.HomepageFragmentMain" >
+    tools:context="com.ranlychan.hotel.fragment.HomepageFragmentMain" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/homepage_bg"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_marginEnd="10dp"
-                tools:src="@tools:sample/avatars" />
+                android:src="@drawable/ic_hotel_logo"/>
 
             <TextView
                 android:id="@+id/tv_homepage_name"
@@ -115,6 +116,7 @@
                     android:id="@+id/rv_homepage_rooms"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fadingEdge="none"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_marginBottom="30dp"

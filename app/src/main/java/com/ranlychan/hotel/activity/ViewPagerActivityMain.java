@@ -1,25 +1,26 @@
-package activity;
+package com.ranlychan.hotel.activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.gyf.immersionbar.ImmersionBar;
 import com.ranlychan.hotel.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fragment.HomepageFragmentMain;
-import fragment.MeFragmentMain;
-import fragment.MessageFragmentMain;
+import com.ranlychan.hotel.fragment.HomepageFragmentMain;
+import com.ranlychan.hotel.fragment.MeFragmentMain;
+import com.ranlychan.hotel.fragment.MessageFragmentMain;
 
 public class ViewPagerActivityMain extends FragmentActivity {
 
@@ -42,6 +43,7 @@ public class ViewPagerActivityMain extends FragmentActivity {
         initEvents();//初始化事件
         initDatas();//初始化数据
     }
+
 
     private void initDatas() {
         mFragments = new ArrayList<>();

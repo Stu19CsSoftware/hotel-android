@@ -19,10 +19,25 @@ android {
             abiFilters 'x86','armeabi', 'armeabi-v7a'  //兼容x86 和arm 第5代、第6代、第7代及的ARM处理器架构
 
         }
+        // 增加自动签名的内容
+        signingConfigs {
+            config {
+                keyAlias 'key0'
+                keyPassword 'stucs2019sw'
+                storeFile file('keystore.jks')
+                storePassword 'stucs2019sw'
+            }
+        }
     }
 
     buildTypes {
+        debug {
+            // 增加签名设置
+            signingConfig signingConfigs.config
+        }
         release {
+            // 增加签名设置
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -44,7 +59,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6' //RecyclerView适配器
-    //implementation 'com.gyf.immersionbar:immersionbar:3.0.0' //全面屏适配
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0' //全面屏适配
     implementation 'com.github.bumptech.glide:glide:3.7.0'//图片加载
+
+    /*LeanCloud SDK支持*/
+    implementation 'cn.leancloud:storage-android:8.2.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'cn.leancloud:realtime-android:8.2.0'
+
 
 }
