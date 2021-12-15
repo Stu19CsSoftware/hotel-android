@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_light_white"
     tools:context="com.ranlychan.hotel.fragment.MessageFragmentMain"
-    android:paddingTop="30dp">
+    android:paddingTop="@dimen/full_screen_top_blank">
 
     <TextView
         android:id="@+id/textView4"

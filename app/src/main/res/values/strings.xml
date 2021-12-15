@@ -9,4 +9,5 @@
     <string name="hotel_name">东门酒店</string>
     <string name="homepage_item_order">预定</string>
     <string name="homepage_btn_text_search">搜索入住方案</string>
+    <string name="me_profile_edit">查看和编辑</string>
 </resources>
