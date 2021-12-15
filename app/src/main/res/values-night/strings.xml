@@ -4,4 +4,9 @@
     <string name="bottom_tab_message">消息</string>
     <string name="bottom_tab_me">我的</string>
     <string name="hotel_name">东门酒店</string>
+    <string name="page_title_room_detail_activity">房型详情</string>
+    <string name="sub_title_room_detail_intro">介绍</string>
+    <string name="sub_title_room_detail_price_time_unit">/每晚</string>
+    <string name="sub_title_room_detail_photo">照片</string>
+    <string name="room_detail_btn_text_reserve">立即预订</string>
 </resources>

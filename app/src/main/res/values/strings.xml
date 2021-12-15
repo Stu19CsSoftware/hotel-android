@@ -10,4 +10,9 @@
     <string name="homepage_item_order">预定</string>
     <string name="homepage_btn_text_search">搜索入住方案</string>
     <string name="me_profile_edit">查看和编辑</string>
+    <string name="page_title_room_detail_activity">房型详情</string>
+    <string name="sub_title_room_detail_intro">介绍</string>
+    <string name="sub_title_room_detail_price_time_unit">/每晚</string>
+    <string name="sub_title_room_detail_photo">照片</string>
+    <string name="room_detail_btn_text_reserve">立即预订</string>
 </resources>

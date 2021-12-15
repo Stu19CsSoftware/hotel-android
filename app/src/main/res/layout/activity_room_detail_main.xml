@@ -1,19 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/page_bg_light_white"
+    android:orientation="vertical"
     tools:context=".activity.RoomDetailActivityMain">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <com.hjq.bar.TitleBar
+        android:id="@+id/tb_room_detail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="房型详情页面"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/aquamarine_main"
+        android:paddingTop="@dimen/full_screen_top_blank"
+        app:barStyle="ripple"
+        app:title="@string/page_title_room_detail_activity"
+        app:titleSize="@dimen/page_title_size_middle">
+
+    </com.hjq.bar.TitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_room_type_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:ems="10"
+                android:textColor="@color/homepage_text_light_black"
+                android:textSize="@dimen/page_title_size_middle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="房型名称" />
+
+            <TextView
+                android:id="@+id/tv_room_short_into"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/homepage_text_light_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_room_type_name"
+                tools:text="简短描述" />
+
+            <TextView
+                android:id="@+id/tv_sub_title_into"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/sub_title_room_detail_intro"
+                android:textColor="@color/homepage_text_light_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_room_short_into" />
+
+            <TextView
+                android:id="@+id/tv_room_full_into"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/homepage_text_light_black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sub_title_into"
+                tools:text="详细介绍" />
+
+            <TextView
+                android:id="@+id/tv_room_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/homepage_text_light_black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="价格" />
+
+            <TextView
+                android:id="@+id/tv_sub_title_room_price_time_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sub_title_room_detail_price_time_unit"
+                android:textColor="@color/homepage_text_light_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_room_price" />
+
+            <TextView
+                android:id="@+id/tv_sub_title_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/sub_title_room_detail_photo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_room_full_into" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_room_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sub_title_photo"
+                tools:itemCount="1"
+                tools:listitem="@layout/room_detail_item_photo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <android.widget.Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_radius"
+            android:text="@string/room_detail_btn_text_reserve"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

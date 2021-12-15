@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="full_screen_top_blank">20dp</dimen>
+    <dimen name="page_title_size_big">26sp</dimen>
+    <dimen name="page_title_size_middle">22sp</dimen>
+    <dimen name="page_title_size_small">18sp</dimen>
 </resources>
