@@ -22,7 +22,8 @@ public class HomepageRoomsAdapter extends BaseQuickAdapter<RoomType,BaseViewHold
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, RoomType roomType) {
         baseViewHolder.setText(R.id.tv_item_room_name,roomType.getName())
-                .setText(R.id.tv_item_room_price,String.valueOf(roomType.getPrice()));
+                .setText(R.id.tv_item_room_price,String.valueOf(roomType.getPrice()))
+                .setText(R.id.tv_item_room_into,roomType.getShortIntro());
         Glide.with(getContext())
                 .load(roomType.getCoverImgUrl())
                 .into((ImageView) baseViewHolder.getView(R.id.iv_item_room_img));

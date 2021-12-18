@@ -80,6 +80,17 @@
                 android:layout_below="@+id/ll_homepage_window_top"
                 android:background="@color/homepage_text_light_gray" />
 
+            <TextView
+                android:id="@+id/tv_homepage_window_select_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_homepage_window_search"
+                android:layout_below="@+id/view"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:text="@string/homepage_select_date" />
+
             <android.widget.Button
                 android:id="@+id/btn_homepage_window_search"
                 android:layout_width="wrap_content"

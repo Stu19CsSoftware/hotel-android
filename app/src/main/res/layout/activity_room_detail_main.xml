@@ -59,6 +59,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/sub_title_room_detail_intro"
                 android:textColor="@color/homepage_text_light_gray"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_room_short_into" />
 
@@ -96,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="@string/sub_title_room_detail_photo"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_room_full_into" />
 
@@ -104,6 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_sub_title_photo"
@@ -119,7 +122,7 @@
         android:background="@color/white">
 
         <android.widget.Button
-            android:id="@+id/button"
+            android:id="@+id/btn_room_detail_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"

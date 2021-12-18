@@ -12,4 +12,14 @@
     <color name="aquamarine_main">#FF13C2C2</color>
     <color name="homepage_text_light_black">#FF404040</color>
     <color name="homepage_text_light_gray">#FFBFBFBF</color>
+
+
+    <!--Calendar-->
+    <color name="date_time_tv">#FFFFFFFF</color>
+    <color name="date_duration_bg">#41D2C4</color>
+    <color name="text_lable">#FF404040</color>
+    <color name="text_main_tab_select">#FF404040</color>
+    <color name="text_unenable">#FFBFBFBF</color>
+
+
 </resources>

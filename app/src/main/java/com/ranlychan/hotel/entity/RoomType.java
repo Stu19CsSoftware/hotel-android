@@ -1,8 +1,12 @@
 package com.ranlychan.hotel.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class RoomType {
+public class RoomType implements Serializable {
+    public static final String ROOMTYPE_OBJECTID_INTENT_TAG = "roomTypeObjId";
+    public static final String PRICE_UNIT = "¥";
+
     private String objectId;
     private boolean Aircondition;
     private float Area;

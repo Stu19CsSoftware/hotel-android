@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_radius_white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_startime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22.5dp"
+            android:layout_toLeftOf="@+id/layout_line"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/popup_date_range_picker_start_time"
+            android:textColor="#35C1B5"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_endtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22.5dp"
+            android:layout_toRightOf="@+id/layout_line"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/popup_date_range_picker_end_time"
+            android:textColor="#35C1B5"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <com.ranlychan.hotel.widget.CalendarView
+        android:id="@+id/calendarview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleColor="@color/text_lable">
+
+    </com.ranlychan.hotel.widget.CalendarView>
+
+    <android.widget.Button
+        android:id="@+id/btn_popup_date_range_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_radius"
+        android:text="@string/popup_date_range_picker_confirm"
+        android:textColor="@color/white" />
+
+</LinearLayout>

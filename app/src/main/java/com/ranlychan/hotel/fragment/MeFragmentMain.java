@@ -142,7 +142,7 @@ public class MeFragmentMain extends Fragment implements View.OnClickListener {
                         break;
                     case GET_OPTIONS_SUCCESS:
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(getContext(), "获取数据成功！", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(), "获取数据成功！", Toast.LENGTH_SHORT).show();
                         for(int i=0;i<optionList.size();i++){
                             Log.d("ranlychan","option name=" + optionList.get(i).getName());
                         }
@@ -157,6 +157,9 @@ public class MeFragmentMain extends Fragment implements View.OnClickListener {
         optionList.add(new MeOption(2,"设置",R.drawable.ic_setting));
         optionList.add(new MeOption(3,"我的订单",R.drawable.ic_bill));
 
+        Message msg = handler.obtainMessage();
+        msg.what=GET_OPTIONS_SUCCESS;
+        msg.sendToTarget();
 
     }
 
@@ -168,7 +171,9 @@ public class MeFragmentMain extends Fragment implements View.OnClickListener {
                 .into(rviUserAvatar);
         tvUserName.setText("名字");
         /*测试数据结束*/
-        Toast.makeText(getContext(), "添加完成", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "添加完成", Toast.LENGTH_SHORT).show();
+
+
         rviUserAvatar.setOnClickListener(this);
         tvUserName.setOnClickListener(this);
         rviUserAvatar.setOnClickListener(this);

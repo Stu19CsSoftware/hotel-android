@@ -9,4 +9,17 @@
     <string name="sub_title_room_detail_price_time_unit">/每晚</string>
     <string name="sub_title_room_detail_photo">照片</string>
     <string name="room_detail_btn_text_reserve">立即预订</string>
+
+    <!--Calendar-->
+    <string name="sun">日</string>
+    <string name="mon">一</string>
+    <string name="tue">二</string>
+    <string name="wed">三</string>
+    <string name="thu">四</string>
+    <string name="fri">五</string>
+    <string name="sat">六</string>
+    <string name="popup_date_range_picker_confirm">确定</string>
+    <string name="popup_date_range_picker_start_time">入住</string>
+    <string name="popup_date_range_picker_end_time">退房</string>
+    <string name="homepage_select_date">选择日期</string>
 </resources>

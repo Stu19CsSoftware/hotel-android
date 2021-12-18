@@ -16,17 +16,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.gyf.immersionbar.ImmersionBar;
+import com.lxj.xpopup.XPopup;
 import com.ranlychan.hotel.R;
 import com.ranlychan.hotel.activity.RoomDetailActivityMain;
 import com.ranlychan.hotel.activity.RoomOrderActivityMain;
 import com.ranlychan.hotel.adapter.HomepageRoomsAdapter;
 import com.ranlychan.hotel.entity.RoomType;
+import com.ranlychan.hotel.widget.CalendarPopView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +39,16 @@ import cn.leancloud.LCQuery;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
+import static com.ranlychan.hotel.entity.RoomType.ROOMTYPE_OBJECTID_INTENT_TAG;
 
-public class HomepageFragmentMain extends Fragment {
+
+public class HomepageFragmentMain extends Fragment implements View.OnClickListener {
 
     private final int GET_AVILI_ROOMS_FAILED = 0;
     private final int GET_AVILI_ROOMS_SUCCESS = 1;
+
+    private TextView tvSelectDate;
+    private TextView btnSearchRooms;
 
     private RecyclerView rvRooms;
     private HomepageRoomsAdapter adapter;
@@ -105,8 +113,14 @@ public class HomepageFragmentMain extends Fragment {
             @Override
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 //点击了第position个房型
-                Intent intent = new Intent(getContext(), RoomDetailActivityMain.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(getContext(), RoomDetailActivityMain.class);
+                    intent.putExtra(ROOMTYPE_OBJECTID_INTENT_TAG,roomTypeList.get(position).getObjectId());
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
 
             }
         });
@@ -119,6 +133,7 @@ public class HomepageFragmentMain extends Fragment {
                         case R.id.btn_item_room_order:
                             //点击了第position个房型的预定按钮
                             Intent intent = new Intent(getContext(), RoomOrderActivityMain.class);
+                            intent.putExtra(ROOMTYPE_OBJECTID_INTENT_TAG,roomTypeList.get(position).getObjectId());
                             startActivity(intent);
                             break;
                     }
@@ -139,7 +154,13 @@ public class HomepageFragmentMain extends Fragment {
 
     private void initViews(View view){
         rvRooms = view.findViewById(R.id.rv_homepage_rooms);
+        tvSelectDate = view.findViewById(R.id.tv_homepage_window_select_date);
+        btnSearchRooms = view.findViewById(R.id.btn_homepage_window_search);
+
+        tvSelectDate.setOnClickListener(this);
+        btnSearchRooms.setOnClickListener(this);
     }
+
     private void initHandler(){
         handler = new Handler(Looper.getMainLooper()){
             @Override
@@ -150,7 +171,7 @@ public class HomepageFragmentMain extends Fragment {
                         break;
                     case GET_AVILI_ROOMS_SUCCESS:
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(getContext(), "获取数据成功！", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(), "获取数据成功！", Toast.LENGTH_SHORT).show();
                         for(int i=0;i<roomTypeList.size();i++){
                             Log.d("ranlychan","room name=" + roomTypeList.get(i).getName());
                         }
@@ -165,6 +186,9 @@ public class HomepageFragmentMain extends Fragment {
      */
     private void getRoomsData(){
         roomTypeList.clear();
+
+        //异步开始前
+        //HomepageGetRoomsIdlingResource.increment();
 
         LCQuery<LCObject> query = new LCQuery<>("RoomTpye");//LeanCloud里面打错了不是RoomType。。。
         query.whereGreaterThan("availableRoomNum", 0);//查询条件
@@ -204,5 +228,19 @@ public class HomepageFragmentMain extends Fragment {
                 msg.sendToTarget();
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.tv_homepage_window_select_date:
+                new XPopup.Builder(getContext())
+                        .asCustom(new CalendarPopView(getContext()))
+                        .show();
+                break;
+            case R.id.btn_homepage_window_search:
+                break;
+
+        }
     }
 }
