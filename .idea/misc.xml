@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/activity_room_detail_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/activity_room_order_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/activity_room_service.xml" value="0.28306159420289856" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/content_room_service.xml" value="0.33" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/fragment_first.xml" value="0.33" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/fragment_homepage_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/fragment_me_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/fragment_message_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/fragment_second.xml" value="0.28306159420289856" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/homepage_item_room.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/me_item_option.xml" value="0.2957427536231884" />
+        <entry key="..\:/hotel/hotelandroid/app/src/main/res/layout/room_detail_item_photo.xml" value="0.2957427536231884" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

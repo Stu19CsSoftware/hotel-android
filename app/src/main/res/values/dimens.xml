@@ -4,4 +4,7 @@
     <dimen name="page_title_size_big">26sp</dimen>
     <dimen name="page_title_size_middle">22sp</dimen>
     <dimen name="page_title_size_small">18sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="buttom_roomservicewidth">300dp</dimen>
+    <dimen name="buttom_roomserviceheight">40dp</dimen>
 </resources>

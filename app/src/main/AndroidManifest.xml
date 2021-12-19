@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hotel">
-        <activity android:name=".activity.RoomOrderActivityMain"></activity>
+        <activity
+            android:name=".activity.RoomServiceActivity"
+            android:exported="false"
+            android:label="@string/title_activity_room_service"
+            android:theme="@style/Theme.Hotel.NoActionBar" />
+        <activity android:name=".activity.RoomOrderActivityMain" />
         <activity android:name=".activity.RoomDetailActivityMain" />
         <activity android:name=".activity.ViewPagerActivityMain">
             <intent-filter>

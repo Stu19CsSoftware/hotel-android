@@ -15,4 +15,14 @@
     <string name="sub_title_room_detail_price_time_unit">/每晚</string>
     <string name="sub_title_room_detail_photo">照片</string>
     <string name="room_detail_btn_text_reserve">立即预订</string>
+    <string name="title_activity_room_service">客房服务</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">客房清洁</string>
+    <string name="next">客房清洁服务</string>
+    <string name="previous">返回</string>
+
+    <string name="hello_first_fragment">您好，有什么能帮到您呢？</string>
+    <string name="hello_second_fragment">正在为您提供，客房清洁服务</string>
+    <string name="button_callingreception" >电话呼叫前台</string>
 </resources>
