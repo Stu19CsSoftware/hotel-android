@@ -101,14 +101,14 @@ public class CalendarView extends LinearLayout implements View.OnClickListener{
         Calendar calendar = Calendar.getInstance(); //得到日历
         calendar.setTime(new Date());
         calendar.add(Calendar.MONTH,-(maxSelect-1));
-        time = DateUtils.formatData(calendar.getTime(), Constant.TFORMATE_YMD);
+        time = DateUtils.formatData(calendar.getTime(), Constant.TFORMAT_YMD);
         timeBefor = DateUtils.getDataTime(time);
-        String now = DateUtils.formatData(new Date(),Constant.TFORMATE_YMD);
+        String now = DateUtils.formatData(new Date(),Constant.TFORMAT_YMD);
         timeNow = DateUtils.getDataTime(now);
 // LogUtils.e("之前日期："+time+"=="+timeBefor);
 // LogUtils.e("当前日期："+now+"=="+timeNow);
-        curDate = DateUtil.strToCalendar(time, Constant.TFORMATE_YMD);
-        dateFromServer = DateUtil.strToDate(time, Constant.TFORMATE_YMD);
+        curDate = DateUtil.strToCalendar(time, Constant.TFORMAT_YMD);
+        dateFromServer = DateUtil.strToDate(time, Constant.TFORMAT_YMD);
     }
     private void init(Context context) {
         bindView(context);

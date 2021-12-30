@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="full_screen_top_blank">20dp</dimen>
+    <dimen name="page_padding_14dp">14dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
 </resources>

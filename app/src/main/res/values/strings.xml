@@ -28,6 +28,24 @@
     <string name="popup_date_range_picker_start_time">入住</string>
     <string name="popup_date_range_picker_end_time">退房</string>
     <string name="homepage_select_date">选择日期</string>
+    <string name="page_title_room_order_activity">预定</string>
+    <string name="room_order_btn_text_submit">提交订单</string>
+    <string name="room_order_title_pay_online">在线支付</string>
+    <string name="room_order_subtitle_cost">房费</string>
+    <string name="room_order_title_check_in_info">入住信息</string>
+    <string name="room_order_room_type_detail">房型详情</string>
+    <string name="room_order_room_number">房间数量</string>
+    <string name="room_order_guest_name">住客姓名</string>
+    <string name="room_order_phone_number">联系手机</string>
+    <string name="room_order_phone_number_hint">住客的手机号</string>
+    <string name="homepage_select_guest_number">房间人数</string>
+    <string name="homepage_btn_map_navigation">地图导航</string>
+    <string name="homepage_btn_hotline">酒店热线</string>
+    <string name="popup_number_picker_confirm">确定</string>
+    <string name="tguest_select_title_room_number">房间数</string>
+    <string name="guest_select_title_room_number">房间数</string>
+    <string name="guest_select_title_adult">成年人</string>
+    <string name="guest_select_title_child">未成年人</string>
 
 
 </resources>

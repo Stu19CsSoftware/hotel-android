@@ -13,4 +13,11 @@
         <attr name="todayFillcircleColor" format="color"></attr>
         <attr name="calendarbackground" format="color|reference"></attr>
     </declare-styleable>
+
+    <declare-styleable name="NumberView">
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
+        <attr name="step" format="integer" />
+        <attr name="defaultValue" format="integer" />
+    </declare-styleable>
 </resources>

@@ -53,22 +53,33 @@
                 android:id="@+id/ll_homepage_window_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_homepage_window_map"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="16sp"
-                    tools:text="地图导航" />
+                    android:drawableStart="@drawable/ic_map"
+                    android:drawablePadding="@dimen/dp_4"
+                    android:gravity="start"
+                    android:text="@string/homepage_btn_map_navigation"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/tv_homepage_window_tel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    tools:text="酒店热线" />
+                    android:drawableStart="@drawable/ic_hotline"
+                    android:drawablePadding="@dimen/dp_4"
+                    android:gravity="end"
+                    android:text="@string/homepage_btn_hotline"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -84,12 +95,55 @@
                 android:id="@+id/tv_homepage_window_select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/btn_homepage_window_search"
-                android:layout_below="@+id/view"
-                android:gravity="center"
+                android:layout_alignTop="@+id/view2"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_toStartOf="@+id/view2"
+                android:gravity="center"
                 android:text="@string/homepage_select_date" />
+
+            <TextView
+                android:id="@+id/tv_homepage_window_check_in_out_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_homepage_window_select_date"
+                android:layout_alignBottom="@+id/view2"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/view2"
+                android:gravity="center"
+                android:textColor="@color/homepage_text_light_black"
+                tools:text="0-0" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="@dimen/dp_half"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_20"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/btn_homepage_window_search"
+                android:layout_below="@+id/view"
+                android:background="@color/homepage_text_light_gray" />
+
+            <TextView
+                android:id="@+id/tv_homepage_window_guest_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_homepage_window_select_guest_number"
+                android:layout_alignBottom="@+id/view2"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/view2"
+                android:gravity="center"
+                android:textColor="@color/homepage_text_light_black"
+                tools:text="1间 - 2人" />
+
+            <TextView
+                android:id="@+id/tv_homepage_window_select_guest_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/view2"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/view2"
+                android:gravity="center"
+                android:text="@string/homepage_select_guest_number" />
 
             <android.widget.Button
                 android:id="@+id/btn_homepage_window_search"
@@ -132,7 +186,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_marginBottom="30dp"
                     tools:itemCount="4"
-                    tools:listitem="@layout/homepage_item_room" />
+                    tools:listitem="@layout/homepage_item_room_type" />
             </RelativeLayout>
 
         </LinearLayout>

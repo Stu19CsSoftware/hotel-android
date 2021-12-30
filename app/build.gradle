@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 28
     buildToolsVersion "30.0.2"
 
     defaultConfig {
@@ -71,6 +71,9 @@ dependencies {
     //implementation 'com.borax12.materialdaterangepicker:library:2.0'//日期选择器
     implementation 'com.lxj:xpopup:2.2.8'//xpopup window
     implementation 'com.zzhoujay.richtext:richtext:3.0.7'//richtext
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:4.1.6'//各类选择器
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:CalendarPicker:4.1.6'  //日期日历选择器
+    implementation 'net.danlew:android.joda:2.9.5'
 
     /*LeanCloud SDK支持*/
     implementation 'cn.leancloud:storage-android:8.2.0'

@@ -1,11 +1,8 @@
 package com.ranlychan.hotel.widget;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -66,7 +63,7 @@ public class CalendarPopView extends CenterPopupView implements View.OnClickList
             @Override
             public void onETimeSelect(Date date) {
                 if (date != null) {
-                    endTime = DateUtils.formatData(date, Constant.TFORMATE_YMD);
+                    endTime = DateUtils.formatData(date, Constant.TFORMAT_YMD);
                     tvEndtime.setText(endTime);
                 }else {
                     endTime = null;
@@ -77,7 +74,7 @@ public class CalendarPopView extends CenterPopupView implements View.OnClickList
             @Override
             public void onSTimeSelect(Date date) {
                 if (date != null) {
-                    starTime = DateUtils.formatData(date, Constant.TFORMATE_YMD);
+                    starTime = DateUtils.formatData(date, Constant.TFORMAT_YMD);
                     tvStartime.setText(starTime);
                 }else {
                     starTime = null;

@@ -30,7 +30,7 @@ public class DateUtils {
     }
 
     public static long getDataTime(String data){
-        SimpleDateFormat dateFormat = new SimpleDateFormat(Constant.TFORMATE_YMD);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(Constant.TFORMAT_YMD);
         try {
             Date date = dateFormat.parse(data);
             return date.getTime();

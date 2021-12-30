@@ -1,10 +1,13 @@
 package com.ranlychan.hotel.fragment;
 
+import android.app.Application;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,39 +19,58 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.github.gzuliyujiang.calendarpicker.CalendarPicker;
+import com.github.gzuliyujiang.calendarpicker.OnRangeDatePickListener;
+import com.github.gzuliyujiang.calendarpicker.OnSingleDatePickListener;
+import com.github.gzuliyujiang.wheelpicker.DatePicker;
+import com.github.gzuliyujiang.wheelpicker.contract.OnDatePickedListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.lxj.xpopup.XPopup;
+import com.lxj.xpopup.core.BasePopupView;
+import com.ranlychan.hotel.HotelApplication;
 import com.ranlychan.hotel.R;
 import com.ranlychan.hotel.activity.RoomDetailActivityMain;
 import com.ranlychan.hotel.activity.RoomOrderActivityMain;
 import com.ranlychan.hotel.adapter.HomepageRoomsAdapter;
 import com.ranlychan.hotel.entity.RoomType;
+import com.ranlychan.hotel.listener.OnQueryRoomTypeListListener;
+import com.ranlychan.hotel.service.RoomSelectService;
+import com.ranlychan.hotel.service.RoomTypeService;
 import com.ranlychan.hotel.widget.CalendarPopView;
+import com.ranlychan.hotel.widget.SelectRoomAndGuestNumPopView;
+
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-
-import cn.leancloud.LCObject;
-import cn.leancloud.LCQuery;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 import static com.ranlychan.hotel.entity.RoomType.ROOMTYPE_OBJECTID_INTENT_TAG;
 
 
 public class HomepageFragmentMain extends Fragment implements View.OnClickListener {
 
+    public static final String FORMAT_MMdd = "MM月dd日";
+
+    private final int DEFAULT_AVAILABLE_MONTHS = 6;//可以预定当前月后的几个月,6代表支持半年内的预定
     private final int GET_AVILI_ROOMS_FAILED = 0;
     private final int GET_AVILI_ROOMS_SUCCESS = 1;
 
     private TextView tvSelectDate;
+    private TextView tvSelectGuestNumber;
     private TextView btnSearchRooms;
+
+    private TextView tvCheckInAndOutDate;
+    private TextView tvRoomAndGuestNumber;
 
     private RecyclerView rvRooms;
     private HomepageRoomsAdapter adapter;
@@ -56,6 +78,9 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
 
     private Handler handler;
 
+    private RoomTypeService roomTypeService;
+    private HotelApplication hotelApplication;
+    private RoomSelectService roomSelectService;
 
     public HomepageFragmentMain() {
 
@@ -65,6 +90,7 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ImmersionBar.with(this).init();
+        roomTypeService = new RoomTypeService();
 
     }
     @Override
@@ -72,7 +98,6 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_homepage_main, container, false);
-
         initViews(view);
         initAdapter();
         initHandler();
@@ -87,7 +112,7 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
         ImmersionBar.with(this).destroy(this);
     }
 
-    // 如果你的app可以横竖屏切换，并且适配4.4或者emui3手机请务必在onConfigurationChanged方法里添加这句话
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -106,7 +131,7 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
 
         //设置适配器
         roomTypeList = new ArrayList<>();
-        adapter = new HomepageRoomsAdapter(R.layout.homepage_item_room,roomTypeList);
+        adapter = new HomepageRoomsAdapter(R.layout.homepage_item_room_type,roomTypeList);
         rvRooms.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
@@ -155,10 +180,23 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
     private void initViews(View view){
         rvRooms = view.findViewById(R.id.rv_homepage_rooms);
         tvSelectDate = view.findViewById(R.id.tv_homepage_window_select_date);
+        tvSelectGuestNumber = view.findViewById(R.id.tv_homepage_window_select_guest_number);
         btnSearchRooms = view.findViewById(R.id.btn_homepage_window_search);
+        tvRoomAndGuestNumber = view.findViewById(R.id.tv_homepage_window_guest_number);
+        tvCheckInAndOutDate = view.findViewById(R.id.tv_homepage_window_check_in_out_date);
 
+        tvCheckInAndOutDate.setOnClickListener(this);
+        tvRoomAndGuestNumber.setOnClickListener(this);
         tvSelectDate.setOnClickListener(this);
+        tvSelectGuestNumber.setOnClickListener(this);
         btnSearchRooms.setOnClickListener(this);
+
+        roomSelectService = RoomSelectService.getRoomSelectService();
+
+
+        tvCheckInAndOutDate.setText(roomSelectService.getFormattedCheckInDate(FORMAT_MMdd)+" - "+
+                roomSelectService.getFormattedCheckOutDate(FORMAT_MMdd));
+        tvRoomAndGuestNumber.setText(String.valueOf(roomSelectService.getNeedRoomNumber())+"间 - "+String.valueOf(roomSelectService.getAdultGuestNumber())+"人");
     }
 
     private void initHandler(){
@@ -170,11 +208,11 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
                         Toast.makeText(getContext(), "获取数据失败！", Toast.LENGTH_SHORT).show();
                         break;
                     case GET_AVILI_ROOMS_SUCCESS:
-                        adapter.notifyDataSetChanged();
-                        //Toast.makeText(getContext(), "获取数据成功！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "获取数据成功！", Toast.LENGTH_SHORT).show();
                         for(int i=0;i<roomTypeList.size();i++){
                             Log.d("ranlychan","room name=" + roomTypeList.get(i).getName());
                         }
+                        adapter.notifyDataSetChanged();
                         break;
                 }
             }
@@ -187,60 +225,100 @@ public class HomepageFragmentMain extends Fragment implements View.OnClickListen
     private void getRoomsData(){
         roomTypeList.clear();
 
-        //异步开始前
-        //HomepageGetRoomsIdlingResource.increment();
-
-        LCQuery<LCObject> query = new LCQuery<>("RoomTpye");//LeanCloud里面打错了不是RoomType。。。
-        query.whereGreaterThan("availableRoomNum", 0);//查询条件
-        query.findInBackground().subscribe(new Observer<List<LCObject>>() {
-            public void onSubscribe(Disposable disposable) {}
-            public void onNext(List<LCObject> list) {
-                for(int i=0;i<list.size();i++){
-                    RoomType roomType = new RoomType();
-                    roomType.setObjectId(list.get(i).getString("objectId"));
-                    roomType.setName(list.get(i).getString("Name"));
-                    roomType.setPrice(list.get(i).getNumber("Price").floatValue());
-                    roomType.setAvailableRoomNum(list.get(i).getNumber("availableRoomNum").intValue());
-                    roomType.setCoverImgUrl(list.get(i).getString("coverImgUrl"));
-                    roomType.setBednumber(list.get(i).getNumber("Bednumber").intValue());
-                    roomType.setDeposit(list.get(i).getNumber("Deposit").floatValue());
-                    roomType.setWashroom(list.get(i).getBoolean("Washroom"));
-                    roomType.setAircondition(list.get(i).getBoolean("Aircondition"));
-                    roomType.setTelephone(list.get(i).getBoolean("Telephone"));
-                    roomType.setTv(list.get(i).getBoolean("Tv"));
-                    roomType.setArea(list.get(i).getNumber("Area").floatValue());
-                    roomType.setIntro(list.get(i).getString("intro"));
-                    roomType.setShortIntro(list.get(i).getString("shortIntro"));
-                    roomType.setCreatedAt(list.get(i).getDate("createdAt"));
-                    roomType.setUpdatedAt(list.get(i).getDate("updatedAt"));
-                    roomTypeList.add(roomType);
-                }
-            }
-            public void onError(Throwable throwable) {
-                Message msg = handler.obtainMessage();
-                msg.what = GET_AVILI_ROOMS_FAILED;
-                msg.sendToTarget();
-                throwable.printStackTrace();
-            }
-            public void onComplete() {
+        roomTypeService.queryRoomTypes(new OnQueryRoomTypeListListener() {
+            @Override
+            public void onQueryComplete(List<RoomType> list) {
+                roomTypeList.addAll(list);
                 Message msg = handler.obtainMessage();
                 msg.what = GET_AVILI_ROOMS_SUCCESS;
                 msg.sendToTarget();
             }
+
+            @Override
+            public void onQueryError(Throwable throwable) {
+                Message msg = handler.obtainMessage();
+                msg.what = GET_AVILI_ROOMS_FAILED;
+                msg.sendToTarget();
+            }
         });
+
+
+        //异步开始前
+        //HomepageGetRoomsIdlingResource.increment();
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.tv_homepage_window_check_in_out_date:
             case R.id.tv_homepage_window_select_date:
+                RoomSelectService roomSelectService = RoomSelectService.getRoomSelectService();
+
+                CalendarPicker picker = new CalendarPicker(getActivity());
+                picker.setRangeDateOnFuture(DEFAULT_AVAILABLE_MONTHS);
+                //picker.setRangeDate(roomSelectService.getCheckInDate(),roomSelectService.getCheckOutDate());
+                picker.setSelectedDate(roomSelectService.getCheckInDate(),roomSelectService.getCheckOutDate());
+                picker.setOnRangeDatePickListener(new OnRangeDatePickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onRangeDatePicked(@NonNull Date startDate, @NonNull Date endDate) {
+                        roomSelectService.setCheckInDate(startDate);
+                        roomSelectService.setCheckOutDate(endDate);
+                        roomSelectService.setOrderTotalDay(Days.daysBetween(new DateTime(startDate),new DateTime(endDate)).getDays());
+                        tvCheckInAndOutDate.setText(roomSelectService.getFormattedCheckInDate(FORMAT_MMdd)+" - "+roomSelectService.getFormattedCheckOutDate(FORMAT_MMdd));
+                    }
+                });
+
+                picker.show();
+
+                /*
                 new XPopup.Builder(getContext())
                         .asCustom(new CalendarPopView(getContext()))
                         .show();
+
+                 */
+                break;
+            case R.id.tv_homepage_window_guest_number:
+            case R.id.tv_homepage_window_select_guest_number:
+                roomSelectService = RoomSelectService.getRoomSelectService();
+                BasePopupView infoSelectWindow = new XPopup.Builder(getContext())
+                        .asCustom(new SelectRoomAndGuestNumPopView(getContext(), new PopupWindow.OnDismissListener() {
+                            @Override
+                            public void onDismiss() {
+                                tvRoomAndGuestNumber.setText(String.valueOf(roomSelectService.getNeedRoomNumber())+"间 - "+String.valueOf(roomSelectService.getAdultGuestNumber())+"人");
+                            }
+                        }))
+                        .show();
                 break;
             case R.id.btn_homepage_window_search:
-                break;
+                roomSelectService = RoomSelectService.getRoomSelectService();
 
+                roomTypeList.clear();
+                adapter.notifyDataSetChanged();
+                HashMap<String,Object> param = new HashMap<>();
+                param.put("startDate",roomSelectService.getCheckInDate());
+                param.put("endDate",roomSelectService.getCheckOutDate());
+                param.put("availableRoomNum",roomSelectService.getNeedRoomNumber());
+                param.put("availableGuestNum",roomSelectService.getAdultGuestNumber());
+
+                roomTypeService.queryRoomTypes(param,new OnQueryRoomTypeListListener() {
+                    @Override
+                    public void onQueryComplete(List<RoomType> list) {
+                        roomTypeList.addAll(list);
+                        Message msg = handler.obtainMessage();
+                        msg.what = GET_AVILI_ROOMS_SUCCESS;
+                        msg.sendToTarget();
+                    }
+
+                    @Override
+                    public void onQueryError(Throwable throwable) {
+                        Message msg = handler.obtainMessage();
+                        msg.what = GET_AVILI_ROOMS_FAILED;
+                        msg.sendToTarget();
+                    }
+                });
+                break;
         }
     }
 }

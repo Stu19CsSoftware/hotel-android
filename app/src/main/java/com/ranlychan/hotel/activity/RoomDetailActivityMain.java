@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.ImageDecoder;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,9 +21,15 @@ import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
 import com.ranlychan.hotel.R;
 import com.ranlychan.hotel.entity.RoomType;
+import com.ranlychan.hotel.listener.OnQueryRoomTypeListener;
+import com.ranlychan.hotel.service.RoomTypeService;
 import com.zzhoujay.richtext.ImageHolder;
 import com.zzhoujay.richtext.RichText;
+import com.zzhoujay.richtext.RichTextConfig;
+import com.zzhoujay.richtext.callback.DrawableGetter;
+import com.zzhoujay.richtext.callback.OnImageClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.leancloud.LCObject;
@@ -49,6 +58,7 @@ public class RoomDetailActivityMain extends BaseActivity {
 
     private Handler handler;
 
+    private RoomTypeService roomTypeService;
 
 
     @Override
@@ -60,6 +70,7 @@ public class RoomDetailActivityMain extends BaseActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
+        roomTypeService = new RoomTypeService();
 
         initView();
         intiTitleBar();
@@ -95,6 +106,7 @@ public class RoomDetailActivityMain extends BaseActivity {
                 if(null != roomType){
                     Intent intent = new Intent(RoomDetailActivityMain.this, RoomOrderActivityMain.class);
                     intent.putExtra(ROOMTYPE_OBJECTID_INTENT_TAG,roomType.getObjectId());
+                    //intent.putExtra(,);
                     startActivity(intent);
                 }
             }
@@ -112,7 +124,25 @@ public class RoomDetailActivityMain extends BaseActivity {
             RichText.fromMarkdown(roomType.getIntro())
                     .showBorder(false)
                     .bind(this)
+                    .autoPlay(true)
                     .size(ImageHolder.MATCH_PARENT, ImageHolder.WRAP_CONTENT)
+                    .imageClick(new OnImageClickListener() {
+                        @Override
+                        public void imageClicked(List<String> imageUrls, int position) {
+                            /*
+                            //TODO 图片放大
+                            List<ImageDecoder.ImageInfo> imageInfosList = new ArrayList<>();
+                            for (int i = 0; i < imageUrls.size(); i++) {
+                                ImageDecoder.ImageInfo imageInfo = new ImageDecoder.ImageInfo(imageUrls.get(i), 200, 200);
+                                imageInfosList.add(imageInfo);
+                            }
+                            if (imageInfosList == null || imageInfosList.isEmpty()) return;
+                            PicShowDialog dialog = new PicShowDialog(LaiShowWebViewActivity.this, imageInfosList, position);
+                            dialog.show();
+                             */
+                        }
+
+                    })
                     .into(tvFullIntro);
 
         }catch (Exception e){
@@ -127,9 +157,11 @@ public class RoomDetailActivityMain extends BaseActivity {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case GET_ROOM_DETAIL_FAILED:
+                        Log.d("RoomDetailActivityMain","获取数据失败！");
                         Toast.makeText(RoomDetailActivityMain.this, "获取数据失败！", Toast.LENGTH_SHORT).show();
                         break;
                     case GET_ROOM_DETAIL_SUCCESS:
+                        Log.d("RoomDetailActivityMain","获取数据成功！");
                         initData();
                         break;
                 }
@@ -138,42 +170,20 @@ public class RoomDetailActivityMain extends BaseActivity {
     }
 
     private void idToRoomTypeDetail(){
-        LCQuery<LCObject> query = new LCQuery<>("RoomTpye");//LeanCloud里面打错了不是RoomType。。。
-        query.whereEqualTo("objectId",roomTypeObjId);
-        query.getFirstInBackground().subscribe(new Observer<LCObject>() {
-            public void onSubscribe(Disposable disposable) {}
 
+        roomTypeService.getRoomType(roomTypeObjId, new OnQueryRoomTypeListener() {
             @Override
-            public void onNext(@NonNull LCObject lcObject) {
-                roomType = new RoomType();
-                roomType.setObjectId(lcObject.getString("objectId"));
-                roomType.setName(lcObject.getString("Name"));
-                roomType.setPrice(lcObject.getNumber("Price").floatValue());
-                roomType.setAvailableRoomNum(lcObject.getNumber("availableRoomNum").intValue());
-                roomType.setCoverImgUrl(lcObject.getString("coverImgUrl"));
-                roomType.setBednumber(lcObject.getNumber("Bednumber").intValue());
-                roomType.setDeposit(lcObject.getNumber("Deposit").floatValue());
-                roomType.setWashroom(lcObject.getBoolean("Washroom"));
-                roomType.setAircondition(lcObject.getBoolean("Aircondition"));
-                roomType.setTelephone(lcObject.getBoolean("Telephone"));
-                roomType.setTv(lcObject.getBoolean("Tv"));
-                roomType.setArea(lcObject.getNumber("Area").floatValue());
-                roomType.setIntro(lcObject.getString("Intro"));
-                roomType.setShortIntro(lcObject.getString("shortIntro"));
-                roomType.setCreatedAt(lcObject.getDate("createdAt"));
-                roomType.setUpdatedAt(lcObject.getDate("updatedAt"));
-            }
-
-
-            public void onError(Throwable throwable) {
-                Message msg = handler.obtainMessage();
-                msg.what = GET_ROOM_DETAIL_FAILED;
-                msg.sendToTarget();
-                throwable.printStackTrace();
-            }
-            public void onComplete() {
+            public void onQueryComplete(RoomType roomType1) {
+                roomType=roomType1;
                 Message msg = handler.obtainMessage();
                 msg.what = GET_ROOM_DETAIL_SUCCESS;
+                msg.sendToTarget();
+            }
+
+            @Override
+            public void onQueryError(Throwable throwable) {
+                Message msg = handler.obtainMessage();
+                msg.what = GET_ROOM_DETAIL_FAILED;
                 msg.sendToTarget();
             }
         });

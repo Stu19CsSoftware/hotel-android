@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_radius_white"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_20">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_guest_select_title_room_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_14"
+            android:layout_weight="1"
+            android:text="@string/guest_select_title_room_number"
+            android:textColor="@color/homepage_text_light_black" />
+
+        <com.ranlychan.hotel.widget.NumberView
+            android:id="@+id/nv_room_number_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_10"
+            app:min="1" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_guest_select_title_adult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_14"
+            android:layout_weight="1"
+            android:text="@string/guest_select_title_adult"
+            android:textColor="@color/homepage_text_light_black" />
+
+        <com.ranlychan.hotel.widget.NumberView
+            android:id="@+id/nv_adult_number_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_10"
+            app:min="1" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_guest_select_title_child"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_14"
+            android:layout_weight="1"
+            android:text="@string/guest_select_title_child"
+            android:textColor="@color/homepage_text_light_black" />
+
+        <com.ranlychan.hotel.widget.NumberView
+            android:id="@+id/nv_child_number_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_10"
+            app:defaultValue="0"
+            app:min="0" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray_line" />
+
+    <android.widget.Button
+        android:id="@+id/btn_guest_select_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_radius"
+        android:layout_marginHorizontal="@dimen/dp_14"
+        android:layout_marginVertical="@dimen/dp_40"
+        android:text="@string/popup_number_picker_confirm" />
+</LinearLayout>

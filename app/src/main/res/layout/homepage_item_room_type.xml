@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_toStartOf="@+id/tv_item_room_price"
+                android:layout_alignParentEnd="true"
                 android:textColor="@color/homepage_text_light_black"
                 android:textSize="18sp"
                 tools:text="房型名称" />
@@ -43,9 +43,10 @@
                 android:id="@+id/tv_item_room_into"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_item_room_order"
                 android:layout_below="@+id/tv_item_room_name"
                 android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/tv_item_room_price"
+                android:layout_alignParentEnd="true"
                 android:textColor="@color/homepage_text_light_gray"
                 tools:text="房型介绍"
                 tools:visibility="visible" />
@@ -54,10 +55,11 @@
                 android:id="@+id/tv_item_room_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_item_room_into"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:gravity="right"
+                android:layout_alignTop="@+id/btn_item_room_order"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/btn_item_room_order"
+                android:gravity="start"
                 android:textColor="@color/homepage_text_light_black"
                 android:textSize="16sp"
                 tools:text="￥100\n/每晚" />
@@ -71,7 +73,8 @@
                 android:layout_alignParentBottom="true"
                 android:numStars="5"
                 android:rating="4"
-                android:stepSize="1" />
+                android:stepSize="1"
+                android:visibility="gone" />
 
             <android.widget.Button
                 android:id="@+id/btn_item_room_order"
