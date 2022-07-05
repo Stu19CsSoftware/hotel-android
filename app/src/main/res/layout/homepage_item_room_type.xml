@@ -60,6 +60,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/btn_item_room_order"
                 android:gravity="start"
+                android:singleLine="true"
                 android:textColor="@color/homepage_text_light_black"
                 android:textSize="16sp"
                 tools:text="￥100\n/每晚" />

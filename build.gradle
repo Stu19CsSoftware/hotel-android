@@ -20,6 +20,7 @@ allprojects {
     repositories {
         maven { url "https://jitpack.io" }
         maven { url 'https://plugins.gradle.org/m2/' }
+        maven {url 'https://mvnrepository.com/artifact/com.ejlchina/okhttps'}
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}

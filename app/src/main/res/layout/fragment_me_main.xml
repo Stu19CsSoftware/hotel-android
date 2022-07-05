@@ -6,66 +6,72 @@
     android:background="@color/page_bg_light_white"
     android:paddingTop="@dimen/full_screen_top_blank"
     android:scrollbars="none"
-    tools:context="com.ranlychan.hotel.fragment.MeFragmentMain">
+    tools:context="com.ranlychan.ktv.fragment.MeFragmentMain">
 
-    <LinearLayout
+    <com.ranlychan.ktv.widget.SafeAreaFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="64dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
 
-            <TextView
-                android:id="@+id/tv_me_profile_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/me_profile_edit"
-                android:textColor="@color/homepage_text_light_gray"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_me_name"
-                app:layout_constraintTop_toBottomOf="@+id/tv_me_name" />
-
-            <TextView
-                android:id="@+id/tv_me_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:textColor="@color/homepage_text_light_black"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_me_avatar"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="名字" />
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/iv_me_avatar"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:riv_oval="true"
-                tools:src="@tools:sample/avatars"
-                tools:visibility="visible" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_me_options"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                tools:listitem="@layout/me_item_option"
-                tools:visibility="visible" />
-        </RelativeLayout>
+                android:layout_marginBottom="64dp">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_me_profile_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/me_profile_edit"
+                    android:textColor="@color/homepage_text_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_me_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_me_name" />
+
+                <TextView
+                    android:id="@+id/tv_me_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:textColor="@color/homepage_text_light_black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv_me_avatar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="名字" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv_me_avatar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_oval="true"
+                    tools:src="@tools:sample/avatars"
+                    tools:visibility="visible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_me_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    tools:listitem="@layout/me_item_option"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.ranlychan.ktv.widget.SafeAreaFrameLayout>
 </ScrollView>

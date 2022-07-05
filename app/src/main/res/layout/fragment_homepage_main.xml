@@ -1,194 +1,206 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:scrollbars="none"
-    android:background="@color/page_bg_light_white"
-    tools:context="com.ranlychan.hotel.fragment.HomepageFragmentMain" >
+    android:background="@drawable/homepage_bg" >
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/homepage_bg"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="@dimen/full_screen_top_blank">
+        android:scrollbars="none"
+        tools:context="com.ranlychan.ktv.fragment.HomepageFragmentMain">
 
-        <LinearLayout
+        <com.ranlychan.ktv.widget.SafeAreaFrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iv_homepage_logo"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_hotel_logo"/>
-
-            <TextView
-                android:id="@+id/tv_homepage_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/hotel_name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
-                android:textSize="28sp" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:padding="14dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="130dp"
-            android:background="@drawable/bg_radius_white">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/ll_homepage_window_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_4"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/full_screen_top_blank">
 
-                <TextView
-                    android:id="@+id/tv_homepage_window_map"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_map"
-                    android:drawablePadding="@dimen/dp_4"
-                    android:gravity="start"
-                    android:text="@string/homepage_btn_map_navigation"
-                    android:textSize="16sp" />
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/iv_homepage_logo"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_hotel_logo" />
 
-                <TextView
-                    android:id="@+id/tv_homepage_window_tel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_hotline"
-                    android:drawablePadding="@dimen/dp_4"
-                    android:gravity="end"
-                    android:text="@string/homepage_btn_hotline"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/tv_homepage_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/hotel_name"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/white"
+                        android:textSize="28sp" />
+                </LinearLayout>
 
-            </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_radius_white"
+                    android:padding="14dp">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:layout_marginTop="18dp"
-                android:layout_below="@+id/ll_homepage_window_top"
-                android:background="@color/homepage_text_light_gray" />
+                    <LinearLayout
+                        android:id="@+id/ll_homepage_window_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_homepage_window_select_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/view2"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/view2"
-                android:gravity="center"
-                android:text="@string/homepage_select_date" />
+                        <TextView
+                            android:id="@+id/tv_homepage_window_map"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_map"
+                            android:drawablePadding="@dimen/dp_4"
+                            android:gravity="start"
+                            android:text="@string/homepage_btn_map_navigation"
+                            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tv_homepage_window_check_in_out_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_homepage_window_select_date"
-                android:layout_alignBottom="@+id/view2"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/view2"
-                android:gravity="center"
-                android:textColor="@color/homepage_text_light_black"
-                tools:text="0-0" />
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="@dimen/dp_half"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/dp_20"
-                android:layout_centerHorizontal="true"
-                android:layout_above="@id/btn_homepage_window_search"
-                android:layout_below="@+id/view"
-                android:background="@color/homepage_text_light_gray" />
+                        <TextView
+                            android:id="@+id/tv_homepage_window_tel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_hotline"
+                            android:drawablePadding="@dimen/dp_4"
+                            android:gravity="end"
+                            android:text="@string/homepage_btn_hotline"
+                            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tv_homepage_window_guest_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_homepage_window_select_guest_number"
-                android:layout_alignBottom="@+id/view2"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/view2"
-                android:gravity="center"
-                android:textColor="@color/homepage_text_light_black"
-                tools:text="1间 - 2人" />
+                    </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_homepage_window_select_guest_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/view2"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/view2"
-                android:gravity="center"
-                android:text="@string/homepage_select_guest_number" />
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/ll_homepage_window_top"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/homepage_text_light_gray" />
 
-            <android.widget.Button
-                android:id="@+id/btn_homepage_window_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/button_radius"
-                android:text="@string/homepage_btn_text_search"
-                android:textColor="@color/white" />
+                    <TextView
+                        android:id="@+id/tv_homepage_window_select_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/view2"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/view2"
+                        android:gravity="center"
+                        android:text="@string/homepage_select_date" />
 
-        </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv_homepage_window_check_in_out_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_homepage_window_select_date"
+                        android:layout_alignBottom="@+id/view2"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/view2"
+                        android:gravity="center"
+                        android:textColor="@color/homepage_text_light_black"
+                        tools:text="0-0" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="42dp"
-            android:orientation="vertical">
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="@dimen/dp_half"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/btn_homepage_window_search"
+                        android:layout_below="@+id/view"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="@dimen/dp_20"
+                        android:background="@color/homepage_text_light_gray" />
 
-            <TextView
-                android:id="@+id/tv_homepage_rooms_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/homepage_rooms_title"
-                android:textColor="@color/homepage_text_light_black"
-                android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/tv_homepage_window_guest_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_homepage_window_select_guest_number"
+                        android:layout_alignBottom="@+id/view2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/view2"
+                        android:gravity="center"
+                        android:textColor="@color/homepage_text_light_black"
+                        tools:text="1间 - 2人" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_homepage_window_select_guest_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/view2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/view2"
+                        android:gravity="center"
+                        android:text="@string/homepage_select_guest_number" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_homepage_rooms"
+                    <android.widget.Button
+                        android:id="@+id/btn_homepage_window_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/button_radius"
+                        android:text="@string/homepage_btn_text_search"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fadingEdge="none"
-                    android:layout_marginLeft="11dp"
-                    android:layout_marginRight="11dp"
-                    android:layout_marginBottom="30dp"
-                    tools:itemCount="4"
-                    tools:listitem="@layout/homepage_item_room_type" />
-            </RelativeLayout>
+                    android:layout_marginTop="42dp"
+                    android:orientation="vertical">
 
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+                    <TextView
+                        android:id="@+id/tv_homepage_rooms_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="@string/homepage_rooms_title"
+                        android:textColor="@color/homepage_text_light_black"
+                        android:textSize="16sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_homepage_rooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="11dp"
+                            android:layout_marginRight="11dp"
+                            android:layout_marginBottom="30dp"
+                            android:fadingEdge="none"
+                            tools:itemCount="4"
+                            tools:listitem="@layout/homepage_item_room_type" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </com.ranlychan.ktv.widget.SafeAreaFrameLayout>
+    </ScrollView>
+
+
+</FrameLayout>
+

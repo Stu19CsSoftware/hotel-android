@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/page_bg_light_white"
+    tools:context=".activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/tv_login_activity_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="@dimen/dp_20"
+        android:src="@drawable/ic_left_arrow"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_login_activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_20"
+        android:text="@string/login_activity_title"
+        android:textColor="@color/homepage_text_light_black"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_login_activity_username"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_margin="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_55"
+        android:background="@drawable/bg_radius_white"
+        android:elevation="@dimen/dp_10"
+        android:ems="10"
+        android:hint="@string/login_activity_username_hint"
+        android:inputType="text"
+        android:paddingStart="@dimen/dp_14"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_login_activity_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@drawable/bg_radius_white"
+        android:layout_margin="@dimen/dp_20"
+        android:paddingStart="@dimen/dp_14"
+        android:elevation="@dimen/dp_10"
+        android:ems="10"
+        android:hint="@string/login_activity_pwd_hint"
+        android:inputType="textPassword"
+        android:textSize="16sp" />
+
+    <android.widget.Button
+        android:id="@+id/btn_login_activity_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:textSize="@dimen/sp_20"
+        android:layout_margin="@dimen/dp_20"
+        android:background="@drawable/button_radius"
+        android:text="@string/login_activity_login_btn"
+        android:textColor="@color/white" />
+</LinearLayout>

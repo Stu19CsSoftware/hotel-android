@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="full_screen_top_blank">20dp</dimen>
+    <dimen name="full_screen_top_blank">10dp</dimen>
     <dimen name="page_title_size_big">26sp</dimen>
     <dimen name="page_title_size_middle">22sp</dimen>
     <dimen name="page_title_size_small">18sp</dimen>
@@ -8,4 +8,8 @@
     <dimen name="dp_14">14dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_half">0.5dp</dimen>
+    <dimen name="sp_24">24sp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_55">55dp</dimen>
+    <dimen name="sp_20">20sp</dimen>
 </resources>

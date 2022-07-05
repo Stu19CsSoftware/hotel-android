@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">Hotel</string>
+    <string name="app_name">KTV预定系统住客端</string>
     <string name="bottom_tab_homepage">首页</string>
     <string name="bottom_tab_message">消息</string>
     <string name="bottom_tab_me">我的</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="homepage_rooms_title">热门房型</string>
-    <string name="hotel_name">东门酒店</string>
+    <string name="homepage_rooms_title">热门包厢类型</string>
+    <string name="hotel_name">汕大KTV</string>
     <string name="homepage_item_order">预定</string>
     <string name="homepage_btn_text_search">搜索入住方案</string>
     <string name="me_profile_edit">查看和编辑</string>
-    <string name="page_title_room_detail_activity">房型详情</string>
+    <string name="page_title_room_detail_activity">包厢类型详情</string>
     <string name="sub_title_room_detail_intro">介绍</string>
     <string name="sub_title_room_detail_price_time_unit">/每晚</string>
     <string name="sub_title_room_detail_photo">照片</string>
@@ -40,12 +40,20 @@
     <string name="room_order_phone_number_hint">住客的手机号</string>
     <string name="homepage_select_guest_number">房间人数</string>
     <string name="homepage_btn_map_navigation">地图导航</string>
-    <string name="homepage_btn_hotline">酒店热线</string>
+    <string name="homepage_btn_hotline">服务热线</string>
     <string name="popup_number_picker_confirm">确定</string>
     <string name="tguest_select_title_room_number">房间数</string>
     <string name="guest_select_title_room_number">房间数</string>
     <string name="guest_select_title_adult">成年人</string>
     <string name="guest_select_title_child">未成年人</string>
+    <string name="login_activity_title">登录</string>
+    <string name="login_activity_username_hint">输入用户名或手机号</string>
+    <string name="login_activity_pwd_hint">输入密码</string>
+    <string name="login_activity_login_btn">登录</string>
+    <string name="register_activity_title">注册</string>
+    <string name="register_activity_phone_number_hint">输入手机号</string>
+    <string name="register_activity_auth_code_hint">输入验证码</string>
+    <string name="register_activity_register_btn">注册</string>
 
 
 </resources>

@@ -23,7 +23,7 @@
             android:text="@string/guest_select_title_room_number"
             android:textColor="@color/homepage_text_light_black" />
 
-        <com.ranlychan.hotel.widget.NumberView
+        <com.ranlychan.ktv.widget.NumberView
             android:id="@+id/nv_room_number_selector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:text="@string/guest_select_title_adult"
             android:textColor="@color/homepage_text_light_black" />
 
-        <com.ranlychan.hotel.widget.NumberView
+        <com.ranlychan.ktv.widget.NumberView
             android:id="@+id/nv_adult_number_selector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:text="@string/guest_select_title_child"
             android:textColor="@color/homepage_text_light_black" />
 
-        <com.ranlychan.hotel.widget.NumberView
+        <com.ranlychan.ktv.widget.NumberView
             android:id="@+id/nv_child_number_selector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

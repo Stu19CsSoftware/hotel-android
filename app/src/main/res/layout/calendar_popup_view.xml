@@ -38,13 +38,13 @@
 
     </LinearLayout>
 
-    <com.ranlychan.hotel.widget.CalendarView
+    <com.ranlychan.ktv.widget.CalendarView
         android:id="@+id/calendarview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleColor="@color/text_lable">
 
-    </com.ranlychan.hotel.widget.CalendarView>
+    </com.ranlychan.ktv.widget.CalendarView>
 
     <android.widget.Button
         android:id="@+id/btn_popup_date_range_confirm"
