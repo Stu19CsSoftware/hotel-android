@@ -1,4 +1,4 @@
-package com.ranlychan.ktv.service;
+package com.ranlychan.ktv.service.impl;
 
 import android.util.Log;
 
@@ -10,8 +10,8 @@ import com.ranlychan.ktv.bean.RoomTypeBean;
 import com.ranlychan.ktv.bean.request.QueryRoomTypeDetailRequestBean;
 import com.ranlychan.ktv.entity.RoomType;
 import com.ranlychan.ktv.listener.OnQueryRoomTypeListListener;
-import com.ranlychan.ktv.listener.OnQueryRoomTypeListener;
 import com.ranlychan.ktv.listener.OnResponseListener;
+import com.ranlychan.ktv.service.intef.ApiService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +22,6 @@ import java.util.List;
 import cn.leancloud.LCObject;
 import cn.leancloud.LCQuery;
 import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -56,5 +56,15 @@
       <option name="name" value="maven3" />
       <option name="url" value="https://mvnrepository.com/artifact/com.ejlchina/okhttps" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="MavenRepo" />
+      <option name="name" value="MavenRepo" />
+      <option name="url" value="https://maven.aliyun.com/repository/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://www.jitpack.io" />
+    </remote-repository>
   </component>
 </project>

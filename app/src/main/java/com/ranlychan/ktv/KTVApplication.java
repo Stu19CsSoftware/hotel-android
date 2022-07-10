@@ -5,7 +5,7 @@ import android.app.Application;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
-import com.ranlychan.ktv.service.RoomSelectService;
+import com.ranlychan.ktv.service.impl.RoomSelectService;
 import com.tencent.bugly.Bugly;
 
 import cn.leancloud.LeanCloud;

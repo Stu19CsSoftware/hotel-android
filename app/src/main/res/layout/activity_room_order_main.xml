@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aquamarine_main">
+    android:background="@color/orange">
 
     <com.ranlychan.ktv.widget.SafeAreaFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -23,10 +21,10 @@
                 android:id="@+id/tb_room_order_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/aquamarine_main"
+                android:background="@color/orange"
                 app:barStyle="ripple"
                 app:title="@string/page_title_room_order_activity"
-                app:titleSize="@dimen/page_title_size_middle"/>
+                app:titleSize="@dimen/page_title_size_middle" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -68,7 +66,7 @@
                                 android:background="@drawable/shape_radius_corner"
                                 android:paddingHorizontal="@dimen/dp_14"
                                 android:paddingVertical="@dimen/dp_4"
-                                android:textColor="@color/aquamarine_main"
+                                android:textColor="@color/orange"
                                 android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="@+id/tv_order_check_in_date"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +135,7 @@
                                 android:drawableRight="@drawable/ic_ze_arrow"
                                 android:gravity="center"
                                 android:text="@string/room_order_room_type_detail"
-                                android:textColor="@color/aquamarine_main"
+                                android:textColor="@color/orange"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"

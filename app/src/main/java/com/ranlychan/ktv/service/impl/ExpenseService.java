@@ -1,4 +1,4 @@
-package com.ranlychan.ktv.service;
+package com.ranlychan.ktv.service.impl;
 
 import java.util.HashMap;
 

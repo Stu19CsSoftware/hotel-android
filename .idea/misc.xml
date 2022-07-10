@@ -3,17 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/drawable/ic_launcher.xml" value="0.1635" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1635" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/drawable/ic_launcher_foreground.xml" value="1.0" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/drawable/transparent.xml" value="0.1635" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/activity_room_detail_main.xml" value="0.32518115942028986" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/activity_room_order_main.xml" value="0.32518115942028986" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/fragment_homepage_main.xml" value="0.24864130434782608" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/fragment_me_main.xml" value="0.32518115942028986" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/fragment_message_main.xml" value="0.32518115942028986" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/homepage_item_room_type.xml" value="0.32518115942028986" />
-        <entry key="..\:/Dev/hotelandroid/app/src/main/res/layout/viewpager_activity_main.xml" value="0.24864130434782608" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/drawable/button_radius.xml" value="0.4185" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/drawable/ic_ze_arrow.xml" value="0.4185" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/drawable/shape_radius_corner.xml" value="0.4185" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/activity_login.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/activity_register.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/activity_room_detail_main.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/activity_room_order_main.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/appoint_calendarview.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/appoint_calendarview_item.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/calendar_popup_view.xml" value="0.4479166666666667" />
+        <entry key="..\:/Dev/hotel-android/app/src/main/res/layout/fragment_homepage_main.xml" value="0.4479166666666667" />
       </map>
     </option>
   </component>

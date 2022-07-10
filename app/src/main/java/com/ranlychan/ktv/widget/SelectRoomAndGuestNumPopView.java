@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.lxj.xpopup.core.CenterPopupView;
 import com.ranlychan.ktv.R;
-import com.ranlychan.ktv.service.RoomSelectService;
+import com.ranlychan.ktv.service.impl.RoomSelectService;
 
 public class SelectRoomAndGuestNumPopView extends CenterPopupView{
 

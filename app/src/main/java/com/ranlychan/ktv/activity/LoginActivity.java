@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ranlychan.ktv.R;
-import com.ranlychan.ktv.service.LoginService;
+import com.ranlychan.ktv.service.impl.LoginService;
 
 import java.util.LinkedHashMap;
 

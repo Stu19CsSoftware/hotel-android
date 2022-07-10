@@ -16,7 +16,7 @@ import com.hjq.bar.TitleBar;
 import com.ranlychan.ktv.R;
 import com.ranlychan.ktv.bean.RoomTypeBean;
 import com.ranlychan.ktv.listener.OnResponseListener;
-import com.ranlychan.ktv.service.RoomTypeService;
+import com.ranlychan.ktv.service.impl.RoomTypeService;
 import com.zzhoujay.richtext.ImageHolder;
 import com.zzhoujay.richtext.RichText;
 import com.zzhoujay.richtext.callback.OnImageClickListener;

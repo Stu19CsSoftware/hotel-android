@@ -1,4 +1,4 @@
-package com.ranlychan.ktv.service;
+package com.ranlychan.ktv.service.impl;
 
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.ranlychan.ktv.entity.User;

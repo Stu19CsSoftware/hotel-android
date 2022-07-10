@@ -13,6 +13,7 @@ public class RoomTypeBean {
     private float price;
     private String price_unit;
     private String created_at;
+    private List<SRoom> avalible_room;
 
     public String getRtid() {
         return rtid;
@@ -92,5 +93,13 @@ public class RoomTypeBean {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    public List<SRoom> getAvalible_room() {
+        return avalible_room;
+    }
+
+    public void setAvalible_room(List<SRoom> avalible_room) {
+        this.avalible_room = avalible_room;
     }
 }

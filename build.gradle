@@ -1,12 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        maven { url 'https://plugins.gradle.org/m2/' }
+        mavenCentral { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
-        google()
-        jcenter()
+        //maven { url 'https://plugins.gradle.org/m2/' }
+        //google()
+        //jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:3.5.2"
@@ -18,14 +19,15 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url "https://jitpack.io" }
-        maven { url 'https://plugins.gradle.org/m2/' }
-        maven {url 'https://mvnrepository.com/artifact/com.ejlchina/okhttps'}
+        mavenCentral { url 'https://maven.aliyun.com/repository/public' }
+        maven { url "https://www.jitpack.io" }
+        //maven {url 'https://mvnrepository.com/artifact/com.ejlchina/okhttps'}
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
-        google()
-        jcenter()
+        //maven { url 'https://plugins.gradle.org/m2/' }
+        //google()
+       // jcenter()
     }
 }
 

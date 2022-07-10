@@ -1,4 +1,4 @@
-package com.ranlychan.ktv.service;
+package com.ranlychan.ktv.service.intef;
 
 import com.ranlychan.ktv.bean.BaseDataBean;
 import com.ranlychan.ktv.bean.request.BaseTokenRequestBean;

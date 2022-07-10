@@ -37,8 +37,8 @@ import com.ranlychan.ktv.activity.RoomOrderActivityMain;
 import com.ranlychan.ktv.adapter.HomepageRoomsAdapter;
 import com.ranlychan.ktv.bean.SRoomTypeBean;
 import com.ranlychan.ktv.listener.OnQueryRoomTypeListListener;
-import com.ranlychan.ktv.service.RoomSelectService;
-import com.ranlychan.ktv.service.RoomTypeService;
+import com.ranlychan.ktv.service.impl.RoomSelectService;
+import com.ranlychan.ktv.service.impl.RoomTypeService;
 import com.ranlychan.ktv.widget.SelectRoomAndGuestNumPopView;
 
 import org.joda.time.DateTime;
